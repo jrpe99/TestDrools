@@ -3,8 +3,11 @@
     <kbase name="firerules" packages="firerules">
         <ksession name="ksession-firerules"/>
     </kbase>
-    <kbase name="applicant" packages="applicant">
-        <ksession name="ksession-applicant"/>
+    <kbase name="applicantStateful" packages="dk.kmd.drools.applicant.stateful">
+         <ksession name="ksession-applicant-stateful"/>
+    </kbase>
+    <kbase name="applicantStateless" packages="dk.kmd.drools.applicant.stateless">
+        <ksession name="ksession-applicant-stateless" type="stateless" default="false"/>
     </kbase>
     
 </kmodule>

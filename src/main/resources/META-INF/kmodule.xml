@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+    <kbase name="firerules" packages="firerules">
+        <ksession name="ksession-firerules"/>
+    </kbase>
+    <kbase name="applicant" packages="applicant">
+        <ksession name="ksession-applicant"/>
+    </kbase>
+    
+</kmodule>

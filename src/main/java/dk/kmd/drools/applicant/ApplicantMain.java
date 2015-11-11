@@ -10,7 +10,7 @@ public class ApplicantMain {
 		KieServices kieServices = KieServices.Factory.get();
 		KieContainer kContainer = kieServices.getKieClasspathContainer();
     	KieSession kSession = kContainer.newKieSession("ksession-applicant");
-		Applicant applicant = new Applicant( "Mr John Smith", 18 );
+		Applicant applicant = new Applicant( "Someone", 18 );
 		kSession.insert( applicant );
 		kSession.fireAllRules();
 	}

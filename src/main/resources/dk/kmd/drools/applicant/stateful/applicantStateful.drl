@@ -1,0 +1,40 @@
+package dk.kmd.drools.applicant
+
+import function dk.kmd.drools.applicant.PrintUtil.print
+
+global java.util.List allowedApplicants;
+global java.util.List notAllowedApplicants;
+
+rule "Is of valid age - stateful"
+	salience 5
+	no-loop // "modify" - will trigger the rule again, creating an endless loop ... this prevents it. 
+	when
+	    $a : Applicant( age >= 18 )
+	then
+		modify( $a ) { setValid( true ) };	    
+end
+
+rule "Handle not allowed - stateful"
+	salience -5
+	when 
+		$a : Applicant( valid == false )
+	then
+		//print($a);
+		notAllowedApplicants.add($a);
+end	
+
+rule "Handle allowed - stateful"
+	salience -2
+	when 
+		$a : Applicant( valid == true );
+	then
+		//print($a);
+		allowedApplicants.add($a);
+end	
+
+/*
+function void print(Applicant applicant) {
+	System.out.println(applicant.getName() + " age " + applicant.getAge() + " is allowed to apply");
+}
+*/
+

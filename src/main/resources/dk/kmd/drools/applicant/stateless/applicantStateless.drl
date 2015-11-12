@@ -1,0 +1,9 @@
+package dk.kmd.drools.applicant
+
+rule "Is of valid age - stateless"
+	when
+	    $a : Applicant( age < 18 )
+	then
+		$a.setValid( true );
+end
+
